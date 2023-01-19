@@ -4,6 +4,7 @@ import { topicModel } from '../models/topicModel'
 import { commentModel } from '../models/commentModel'
 import { likeModel } from '../models/likeModel'
 import { teamModel } from '../models/teamModel'
+import { wordModel } from '../models/wordModel'
 import { userModel } from '../models/userModel'
 
 const {
@@ -49,6 +50,11 @@ export const User = sequelize.define('User', userModel, {
 export const Teams = sequelize.define('Teams', teamModel, {
   tableName: 'teams',
   initialAutoIncrement: '100',
+})
+
+export const Words = sequelize.define('Words', wordModel, {
+  tableName: 'descriptions',
+  initialAutoIncrement: '10000',
 })
 
 Topics.hasMany(Comments, { foreignKey: 'topic_id' })

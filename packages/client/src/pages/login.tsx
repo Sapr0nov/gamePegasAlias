@@ -1,12 +1,13 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
 
 import { FormField, Button, Intro } from '../components'
 import { LOCAL_URL, OAUTH_CLIENT_ID } from '../constants'
-import { useAppDispatch } from '../services/hooks'
+import { useAppDispatch, useAppSelector } from '../services/hooks'
 import { loginUser, signUpYaOAuth } from '../services/http/login'
 import { getUserApi } from '../services/store/user'
+import { UserInfo } from '../types/user'
 import { authorization, ErrorMessage, errorToString, pattern } from '../utils'
 
 import './../scss/form/form.scss'
@@ -14,7 +15,11 @@ import './../scss/form/form.scss'
 export const Login: React.FC = (): JSX.Element => {
   const { login, password } = pattern()
   const dispatch = useAppDispatch()
-
+  let user: UserInfo = useAppSelector(state => state.user.user)
+  useEffect(() => {
+    dispatch(getUserApi())
+  }, [dispatch])
+  
   const {
     register,
     formState: { errors },
@@ -32,6 +37,19 @@ export const Login: React.FC = (): JSX.Element => {
         }
       })
       .catch(e => console.log(e))
+  }
+
+  const demoModeOn = () => {
+    user = {
+      "id": 0,
+      "login": "demo",
+      "first_name": "Demo",
+      "second_name": "User",
+      "display_name": "Demo user",
+      "avatar": "",
+      "email": "demo@demo.ru",
+      "phone": "7776663322"
+    }
   }
 
   const handleClick = () => {
@@ -86,6 +104,15 @@ export const Login: React.FC = (): JSX.Element => {
 
         <div className="form__buttons">
           <Button text="Авторизоваться" type="submit" />
+          <Button 
+            text="Demo режим" 
+            type="button"
+            events={{
+              onClick: () => {
+                demoModeOn()
+                navigate('/')
+              },
+            }} />
           <Button
             text="Авторизоваться через Яндекс"
             type="button"
