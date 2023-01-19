@@ -3,10 +3,9 @@ import type { IWord } from '../models/wordModel'
 
 // Сохранить описание слова
 export async function createWord(props: IWord) {
-  if (props) {
-
+  if (props) {    
+    return Words.create({ ...props })
   }
-  return Words.create({ ...props })
 }
 
 // Получение описания слова
