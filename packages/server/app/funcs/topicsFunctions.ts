@@ -8,34 +8,64 @@ export async function createTopic(props: ITopic) {
 
 // Получение топика по Id
 export async function getTopicById(id: number) {
-  return Topics.findOne({ 
-    where: { 
-      topic_id: id
+  return Topics.findOne({
+    where: {
+      topic_id: id,
     },
     include: [
       {
         model: Comments,
         order: [['createdAt', 'DESC']],
-        attributes: ['message', 'author_name', 'author_id', 'createdAt', 'updatedAt', 'topic_id', 'comment_id', 'bind_comment_id'],
+        attributes: [
+          'message',
+          'author_name',
+          'author_id',
+          'createdAt',
+          'updatedAt',
+          'topic_id',
+          'comment_id',
+          'bind_comment_id',
+        ],
         include: [
           {
             model: Comments,
             order: [['createdAt', 'DESC']],
-            attributes: ['message', 'author_name', 'author_id', 'createdAt', 'updatedAt', 'topic_id', 'comment_id', 'bind_comment_id'],
+            attributes: [
+              'message',
+              'author_name',
+              'author_id',
+              'createdAt',
+              'updatedAt',
+              'topic_id',
+              'comment_id',
+              'bind_comment_id',
+            ],
             include: [
               {
                 model: Like,
-                attributes: ['author_id', 'createdAt', 'updatedAt', 'topic_id', 'like_id']
-              }
-            ]
+                attributes: [
+                  'author_id',
+                  'createdAt',
+                  'updatedAt',
+                  'topic_id',
+                  'like_id',
+                ],
+              },
+            ],
           },
           {
             model: Like,
-            attributes: ['author_id', 'createdAt', 'updatedAt', 'topic_id', 'like_id']
-          }
-        ]
-      }
-    ]
+            attributes: [
+              'author_id',
+              'createdAt',
+              'updatedAt',
+              'topic_id',
+              'like_id',
+            ],
+          },
+        ],
+      },
+    ],
   })
 }
 
@@ -54,8 +84,15 @@ export async function getAllTopics(props: pager) {
     include: [
       {
         model: Comments,
-        attributes: ['message', 'author_name', 'author_id', 'createdAt', 'updatedAt', 'topic_id'],
-      }
-    ]
+        attributes: [
+          'message',
+          'author_name',
+          'author_id',
+          'createdAt',
+          'updatedAt',
+          'topic_id',
+        ],
+      },
+    ],
   })
 }

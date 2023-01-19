@@ -1,2 +1,2 @@
-export * from './topicSlice';
-export * from './topicThunk';
+export * from './topicSlice'
+export * from './topicThunk'

@@ -16,7 +16,7 @@
   transition: 0.3s;
   cursor: pointer;
   line-height: 1.2;
-  
+
   &:hover {
     box-shadow: $card-hover-shadow;
   }
@@ -45,7 +45,7 @@
   border-radius: 5px;
   background: $disabled;
   color: $light;
-  
+
   &--easy {
     background: $easy;
   }
@@ -64,5 +64,4 @@
     width: calc(100% + 40px);
     margin: -10px -20px -20px;
   }
-  
 }

@@ -9,6 +9,6 @@ export async function createLike(props: ILike) {
 // Удаление комментария по ID
 export async function deleteLike(id: number) {
   return Like.destroy({
-    where: { like_id: id }
+    where: { like_id: id },
   })
 }

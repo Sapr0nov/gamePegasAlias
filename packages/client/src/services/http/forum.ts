@@ -1,7 +1,6 @@
 import { serverInstance } from './axios'
 import { ForumState } from '../store/forum/type'
 
-
 export const getTopicsAPI = (filter: ForumState) => {
   return serverInstance
     .get('/api/topics', { params: filter })

@@ -41,7 +41,6 @@
   z-index: 1;
 }
 
-
 @include down($mobile) {
   .timer {
     margin: 20px 0 0;

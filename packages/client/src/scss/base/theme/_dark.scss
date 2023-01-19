@@ -7,28 +7,42 @@ $theme-accent: #333864;
 }
 
 @mixin inverted-shadow() {
-  box-shadow: 
-    4px 4px 40px -10px #6f8cb069, 
-    -6px -6px 20px -9px #fff, 
+  box-shadow: 4px 4px 40px -10px #6f8cb069, -6px -6px 20px -9px #fff,
     2px 2px 4px #728eab1a;
 }
 
 .theme-dark {
   color: $theme-light;
-  background: url('@/assets/images/app-bg-dark.png') center / 100% 103% no-repeat;
+  background: url('@/assets/images/app-bg-dark.png') center / 100% 103%
+    no-repeat;
 
   &:fullscreen::backdrop {
-    background: url('@/assets/images/app-bg-dark.png') center / 100% 103% no-repeat;
+    background: url('@/assets/images/app-bg-dark.png') center / 100% 103%
+      no-repeat;
   }
 
-  .forums__item, .forum-body, .forum__footer, .back-link__icon-wrap,
-  .comment__form, .comment__like-icon, .comment__link, .leaderboard,
-  .score-in-round__command, .modal__body, .form__cancel-btn, .timer, .avatar__edit {
+  .forums__item,
+  .forum-body,
+  .forum__footer,
+  .back-link__icon-wrap,
+  .comment__form,
+  .comment__like-icon,
+  .comment__link,
+  .leaderboard,
+  .score-in-round__command,
+  .modal__body,
+  .form__cancel-btn,
+  .timer,
+  .avatar__edit {
     @include inverted-shadow;
     @include inverted;
   }
 
-  .round__stages, .round__result, .back-link__text, .form-field, .app-settings {
+  .round__stages,
+  .round__result,
+  .back-link__text,
+  .form-field,
+  .app-settings {
     @include inverted;
   }
 
@@ -36,14 +50,14 @@ $theme-accent: #333864;
   .winner__image-wrap,
   .server-error__image-wrap,
   .not-found__image-wrap {
-    box-shadow: 
-      -10px -10px 20px 0px rgba(38, 22, 86, 1), 
+    box-shadow: -10px -10px 20px 0px rgba(38, 22, 86, 1),
       10px 10px 20px 0px rgba(24, 68, 108, 1);
   }
 
   .button {
     color: $dark;
-    box-shadow: 3px 3px 4px 0 rgb(255 255 255 / 10%) inset, -3px -3px 2px 0px rgb(255 255 255 / 40%) inset;
+    box-shadow: 3px 3px 4px 0 rgb(255 255 255 / 10%) inset,
+      -3px -3px 2px 0px rgb(255 255 255 / 40%) inset;
     filter: invert(1) hue-rotate(150deg);
 
     &:hover,
@@ -56,15 +70,16 @@ $theme-accent: #333864;
       }
     }
 
-    &--disabled, &[disabled] {
+    &--disabled,
+    &[disabled] {
       box-shadow: none;
       background: $theme-light;
     }
-    
+
     &--success {
       filter: invert(1) hue-rotate(194deg);
     }
-    
+
     &--alert {
       filter: invert(1) hue-rotate(180deg);
     }
@@ -73,7 +88,7 @@ $theme-accent: #333864;
   .modal .button {
     background: #e9e1e1;
     filter: hue-rotate(215deg);
-    
+
     &--light {
       background: #f3b4b4;
     }
@@ -83,20 +98,28 @@ $theme-accent: #333864;
     background: rgb(1 6 18 / 75%);
   }
 
-  .server-error__text, .server-error__title, .server-error__desc, 
-  .not-found__title, .not-found__desc, .not-found__text, .winner__text, 
-  .round-board__word-score, .round-board__summary, .round-board__title {
+  .server-error__text,
+  .server-error__title,
+  .server-error__desc,
+  .not-found__title,
+  .not-found__desc,
+  .not-found__text,
+  .winner__text,
+  .round-board__word-score,
+  .round-board__summary,
+  .round-board__title {
     color: $theme-light;
   }
 
-  .round-board__word--minus .round-board__word-score, .comment__link--alert {
+  .round-board__word--minus .round-board__word-score,
+  .comment__link--alert {
     color: #e83a3a;
   }
-  
+
   .modal__form .form-field,
   .leaderboard__options .button {
     filter: none;
-    
+
     &--active {
       background: $theme-light;
     }
@@ -106,18 +129,16 @@ $theme-accent: #333864;
     @include inverted-shadow;
     background-color: $theme-accent;
   }
-  
+
   .avatar {
     @include inverted-shadow;
     background: $theme-accent;
   }
-  
+
   .round-board__word {
     background: $theme-accent;
-    box-shadow: 
-      4px 4px 20px 0 rgb(0 0 0 / 41%), 
-      -6px -6px 20px 0px rgb(42 53 84),
-      2px 2px 4px 0px rgb(0 0 0 / 10%);
+    box-shadow: 4px 4px 20px 0 rgb(0 0 0 / 41%),
+      -6px -6px 20px 0px rgb(42 53 84), 2px 2px 4px 0px rgb(0 0 0 / 10%);
     color: $theme-light;
   }
 
@@ -125,7 +146,8 @@ $theme-accent: #333864;
     background: rgb(72 0 0 / 10%);
   }
 
-  .team-cards__item-label, .dictionary-cards__item-label {
+  .team-cards__item-label,
+  .dictionary-cards__item-label {
     color: $dark;
     font-weight: 700;
   }
@@ -134,7 +156,7 @@ $theme-accent: #333864;
     background-color: rgba(32, 2, 2, 0.05) !important;
     box-shadow: 4px 4px 10px 0 rgb(178 193 240 / 70%);
     filter: invert(1) hue-rotate(175deg);
-    
+
     &:hover,
     &:focus,
     &:active {
@@ -152,9 +174,7 @@ $theme-accent: #333864;
   }
 
   .score-in-round__command {
-    box-shadow: 
-      2px 2px 4px rgb(114 142 171 / 10%), 
-      -6px -6px 20px #e9ebfb, 
+    box-shadow: 2px 2px 4px rgb(114 142 171 / 10%), -6px -6px 20px #e9ebfb,
       4px 4px 20px rgb(111 140 176 / 41%);
   }
 

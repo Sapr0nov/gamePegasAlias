@@ -1,7 +1,7 @@
-let context: AudioContext;
+let context: AudioContext
 
 if (typeof window !== 'undefined') {
-  context = new AudioContext();
+  context = new AudioContext()
 }
 
 const playNote = (frequency: number, startTime: number, duration: number) => {
@@ -37,4 +37,4 @@ const playStartSound = () => {
   }
 }
 
-export default playStartSound;
+export default playStartSound

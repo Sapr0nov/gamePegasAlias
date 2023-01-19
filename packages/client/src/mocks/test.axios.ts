@@ -4,6 +4,6 @@ const axios = {
   defaults: {
     adapter: {},
   },
-};
+}
 
-export default axios;
+export default axios

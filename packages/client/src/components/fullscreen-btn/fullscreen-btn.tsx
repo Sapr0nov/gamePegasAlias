@@ -1,6 +1,6 @@
 import React from 'react'
 import './fullscreen-btn.scss'
-import fullscreenIcon from '@/assets/images/fullscreen.svg';
+import fullscreenIcon from '@/assets/images/fullscreen.svg'
 
 export function FullscreenBtn() {
   function handleClick(): void {
@@ -13,7 +13,7 @@ export function FullscreenBtn() {
 
   return (
     <div className="fullscreen-btn" onClick={handleClick} title="На весь экран">
-      <img src={fullscreenIcon} alt="На весь экран"/>
+      <img src={fullscreenIcon} alt="На весь экран" />
     </div>
   )
 }

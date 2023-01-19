@@ -1,2 +1,2 @@
-export * from './leadersSlice';
-export * from './leadersThunk';
+export * from './leadersSlice'
+export * from './leadersThunk'

@@ -1,5 +1,8 @@
 import express from 'express'
-import { createNewComment, deleteCommentById } from '../controllers/commentsController'
+import {
+  createNewComment,
+  deleteCommentById,
+} from '../controllers/commentsController'
 
 const commentsRouter = express.Router()
 
@@ -9,4 +12,4 @@ commentsRouter.post('/', createNewComment)
 // Удаление комментария
 commentsRouter.delete('/:id', deleteCommentById)
 
-export default commentsRouter;
+export default commentsRouter

@@ -13,9 +13,10 @@ export const Modal: React.FC<IModal> = ({
   children,
   isOpen,
   close,
-  classes
+  classes,
 }: IModal): JSX.Element => {
-  const getActiveClasses = () => classes ? 'modal modal--open ' + classes : 'modal modal--open'
+  const getActiveClasses = () =>
+    classes ? 'modal modal--open ' + classes : 'modal modal--open'
   return (
     <>
       {isOpen && (

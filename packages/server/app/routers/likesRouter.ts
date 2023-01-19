@@ -1,7 +1,7 @@
 import express from 'express'
 import { createNewLike, deleteLikeById } from '../controllers/likeController'
 
-const likesRouter = express.Router();
+const likesRouter = express.Router()
 
 // Создание лайка
 likesRouter.post('/', createNewLike)

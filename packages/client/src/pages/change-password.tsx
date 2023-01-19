@@ -20,8 +20,8 @@ export const ChangePassword: React.FC = (): JSX.Element => {
     watch,
     formState: { errors },
     handleSubmit,
-  } = useForm<Record<string, string>>({ 
-    mode: 'onBlur'
+  } = useForm<Record<string, string>>({
+    mode: 'onBlur',
   })
 
   const passwordField = useRef({})
@@ -37,7 +37,7 @@ export const ChangePassword: React.FC = (): JSX.Element => {
     navigate('/profile')
   }
 
-  authorization();
+  authorization()
   return (
     <>
       <header>

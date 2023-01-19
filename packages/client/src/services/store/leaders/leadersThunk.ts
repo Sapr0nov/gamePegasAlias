@@ -5,6 +5,6 @@ import { FilterState } from './type'
 export const getLeadersApi = createAsyncThunk(
   'leader/getLeadersApi',
   async function (filter: FilterState) {
-    return await getLeadersAPI(filter);
+    return await getLeadersAPI(filter)
   }
 )

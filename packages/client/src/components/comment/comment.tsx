@@ -5,7 +5,12 @@ import './comment.scss'
 import { getDateDMY } from '../../utils/getDate'
 import { UserInfo } from '../../types/user'
 import { IComment } from '../../services/store/topic/type'
-import { createLikeApi, deleteCommentApi, deleteLikeApi, getTopicApi } from '../../services/store/topic'
+import {
+  createLikeApi,
+  deleteCommentApi,
+  deleteLikeApi,
+  getTopicApi,
+} from '../../services/store/topic'
 import { useQueryParams } from '../../services/hooks/useQueryParams'
 
 export function Comment(props: IComment) {
@@ -16,36 +21,31 @@ export function Comment(props: IComment) {
   const dispatch = useAppDispatch()
   const haveLike = props.Likes.find(item => item.author_id === user.id)
   const createDate = () => getDateDMY(props.createdAt)
-  const deleteComment = (id:number) => {
-    dispatch(deleteCommentApi(id)).then(
-      () => {
-        if (topic_id) {
-          dispatch(getTopicApi(topic_id))
-        }
+  const deleteComment = (id: number) => {
+    dispatch(deleteCommentApi(id)).then(() => {
+      if (topic_id) {
+        dispatch(getTopicApi(topic_id))
       }
-    )
+    })
   }
   const toggleLike = () => {
-    haveLike 
-      ? dispatch(deleteLikeApi(haveLike.like_id))
-        .then(
-          () => {
-            if (topic_id) {
-              dispatch(getTopicApi(topic_id))
-            }
-          }
-        )
-      : dispatch(createLikeApi({
-        topic_id: Number(topic_id),
-        author_id: user.id,
-        comment_id: props.comment_id
-      })).then(
-        () => {
+    haveLike
+      ? dispatch(deleteLikeApi(haveLike.like_id)).then(() => {
           if (topic_id) {
             dispatch(getTopicApi(topic_id))
           }
-        }
-      )
+        })
+      : dispatch(
+          createLikeApi({
+            topic_id: Number(topic_id),
+            author_id: user.id,
+            comment_id: props.comment_id,
+          })
+        ).then(() => {
+          if (topic_id) {
+            dispatch(getTopicApi(topic_id))
+          }
+        })
   }
   return (
     <div className="comment">
@@ -78,7 +78,10 @@ export function Comment(props: IComment) {
           )}
           {commentOpen && !props.bind_comment_id && (
             <div className="comment__form">
-              <CommentField comment_id={props.comment_id} toggle={toggleField}/>
+              <CommentField
+                comment_id={props.comment_id}
+                toggle={toggleField}
+              />
             </div>
           )}
           <div className="comment__likes">

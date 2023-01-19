@@ -12,11 +12,11 @@
   transform: translateX(calc(100% - 39px));
   transition: 0.3s transform;
   z-index: 10;
-  
+
   &--open {
     transform: none;
     background: #ccdafc;
-    
+
     .app-settings__trigger {
       transform: rotate(180deg);
       border-right: 0;

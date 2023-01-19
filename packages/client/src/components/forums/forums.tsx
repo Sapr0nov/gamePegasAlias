@@ -18,36 +18,43 @@ export const Forums = () => {
   const query = useQueryParams()
   const queryPage: number = Number(query.get('page')) || 0
   const initialStateFilter: ForumState = {
-    'cursor': queryPage,
-    'limit': 10
+    cursor: queryPage,
+    limit: 10,
   }
   const [filter, setFilter] = useState(initialStateFilter)
-  const topics: Array<Topic> = useSelector((state: RootState) => state.forum.topics)
+  const topics: Array<Topic> = useSelector(
+    (state: RootState) => state.forum.topics
+  )
   const [value, toggleValue] = useToggle()
   const changeFilter = (filterName: string) => {
     navigate({
       pathname: '/forum',
-      search: `?cursor=${filterName}`
+      search: `?cursor=${filterName}`,
     })
   }
-  const getComments = (comments:Array<Comment>):string => 
-    comments.length 
-      ? `${comments.length} ` + wordsDeclention(comments.length, ['комментарий', 'комментария', 'комментариев'])
+  const getComments = (comments: Array<Comment>): string =>
+    comments.length
+      ? `${comments.length} ` +
+        wordsDeclention(comments.length, [
+          'комментарий',
+          'комментария',
+          'комментариев',
+        ])
       : ''
-  
+
   useEffect(() => {
     setFilter({
       ...filter,
-      'cursor': queryPage,
+      cursor: queryPage,
     })
   }, [queryPage])
 
   useEffect(() => {
-    if(!value) {
+    if (!value) {
       dispatch(getForumApi(filter))
-    }    
+    }
   }, [filter, value])
-  
+
   return (
     <div className="forums">
       <header className="forums__header">
@@ -63,7 +70,10 @@ export const Forums = () => {
       <div className="forums__list">
         {topics.map(topic => {
           return (
-            <Link className="forums__item" key={topic.title + topic.topic_id} to={`/forum-detail?topic_id=${topic.topic_id}`}>
+            <Link
+              className="forums__item"
+              key={topic.title + topic.topic_id}
+              to={`/forum-detail?topic_id=${topic.topic_id}`}>
               <span className="forums__item-title">{topic.title}</span>
               <span className="forums__item-desc">{topic.question}</span>
               <div className="forums__item-info">

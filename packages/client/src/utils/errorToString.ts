@@ -1,6 +1,6 @@
-import { FieldError } from "react-hook-form"
+import { FieldError } from 'react-hook-form'
 
-export type ErrorMessage = FieldError | undefined;
+export type ErrorMessage = FieldError | undefined
 
 export const errorToString = (value: ErrorMessage): string => {
   if (!value) {

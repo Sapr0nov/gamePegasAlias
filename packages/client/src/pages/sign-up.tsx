@@ -25,7 +25,7 @@ export const SignUp: React.FC = (): JSX.Element => {
 
   const navigate = useNavigate()
   const dispatch = useAppDispatch()
-  
+
   const onSubmit = (data: Record<string, unknown>) => {
     registerUser(data).then(res => {
       if (res && res.id > 0) {
@@ -35,7 +35,7 @@ export const SignUp: React.FC = (): JSX.Element => {
     })
   }
 
-  authorization();
+  authorization()
   return (
     <main>
       <Intro small />

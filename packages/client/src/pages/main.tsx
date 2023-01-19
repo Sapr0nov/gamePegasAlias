@@ -14,14 +14,14 @@ import { UserInfo } from '../types/user'
 export const Main: React.FC = (): JSX.Element => {
   if (typeof window !== 'undefined') {
     const dispatch = useAppDispatch()
-    const user: UserInfo = useAppSelector(state => state.user.user);
+    const user: UserInfo = useAppSelector(state => state.user.user)
     const initialStateFilter: FilterState = {
-      'ratingFieldName': 'games',
-      'cursor': 0,
-      'status':'',
-      'limit': 100,
-      'player_id': Number(user.id)
-    } 
+      ratingFieldName: 'games',
+      cursor: 0,
+      status: '',
+      limit: 100,
+      player_id: Number(user.id),
+    }
     dispatch(getTeamsApi(initialStateFilter))
     const params = new URLSearchParams(location.search)
     const code = params.get('code')
@@ -29,16 +29,16 @@ export const Main: React.FC = (): JSX.Element => {
     useEffect(() => {
       if (code) {
         signInYaOAuth({ code, redirect_uri: LOCAL_URL })
-        .then(() => {
-          dispatch(getUserApi())
-          navigate('/')
-        })
-        .catch(e => console.log(e))
+          .then(() => {
+            dispatch(getUserApi())
+            navigate('/')
+          })
+          .catch(e => console.log(e))
       }
     }, [code])
   }
-  authorization();
-    return (
+  authorization()
+  return (
     <main>
       <Intro />
       <ButtonsNavigation />

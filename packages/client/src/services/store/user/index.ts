@@ -1,2 +1,2 @@
-export * from './userSlice';
-export * from './userThunk';
+export * from './userSlice'
+export * from './userThunk'

@@ -14,7 +14,7 @@ import './../scss/form/form.scss'
 export const Login: React.FC = (): JSX.Element => {
   const { login, password } = pattern()
   const dispatch = useAppDispatch()
-  
+
   const {
     register,
     formState: { errors },
@@ -25,13 +25,13 @@ export const Login: React.FC = (): JSX.Element => {
 
   const onSubmit = (data: Record<string, unknown>) => {
     loginUser(data)
-    .then((res) => {
-      if(res) {
-        dispatch(getUserApi())
+      .then(res => {
+        if (res) {
+          dispatch(getUserApi())
           navigate('/')
-      }
-    })
-    .catch(e => console.log(e))
+        }
+      })
+      .catch(e => console.log(e))
   }
 
   const handleClick = () => {
@@ -42,7 +42,7 @@ export const Login: React.FC = (): JSX.Element => {
     })
   }
 
-  authorization();
+  authorization()
   return (
     <main>
       <Intro />

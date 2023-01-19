@@ -20,7 +20,7 @@ export const createNewComment = (data: any) => {
 
 export const deleteComment = (id: number) => {
   return serverInstance
-    .delete(`/api/comments/${id}`, )
+    .delete(`/api/comments/${id}`)
     .then(response => response.data)
     .catch(error => {
       console.log(error)
@@ -38,7 +38,7 @@ export const createNewLike = (data: any) => {
 
 export const deleteLike = (id: number) => {
   return serverInstance
-    .delete(`/api/likes/${id}`, )
+    .delete(`/api/likes/${id}`)
     .then(response => response.data)
     .catch(error => {
       console.log(error)

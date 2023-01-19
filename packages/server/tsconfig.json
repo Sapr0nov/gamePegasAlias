@@ -19,9 +19,7 @@
     "noUnusedLocals": false,
     "forceConsistentCasingInFileNames": true,
     "importsNotUsedAsValues": "error",
-    "rootDirs": [
-      "./../../",
-    ],
+    "rootDirs": ["./../../"],
     "lib": ["DOM", "es2019", "esnext.asynciterable"],
     "types": ["node", "jest"],
     "baseUrl": ".",

@@ -5,7 +5,7 @@ import { createNewTopic, getTopicsAPI } from '../../http/forum'
 export const getForumApi = createAsyncThunk(
   'forum/getTopicsApi',
   async function (filter: ForumState) {
-    return await getTopicsAPI(filter);
+    return await getTopicsAPI(filter)
   }
 )
 

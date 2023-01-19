@@ -10,12 +10,12 @@ export const registerUser = async (data: Record<string, unknown>) => {
 }
 
 export const loginUser = async (data: Record<string, unknown>) => {
- return await apiInstance
-   .post('/auth/signin', data)
-   .then(response => response)
-   .catch(error => {
-     console.log(error)
-   })
+  return await apiInstance
+    .post('/auth/signin', data)
+    .then(response => response)
+    .catch(error => {
+      console.log(error)
+    })
 }
 
 export const signUpYaOAuth = () => {

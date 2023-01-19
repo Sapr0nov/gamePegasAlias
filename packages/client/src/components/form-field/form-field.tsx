@@ -16,7 +16,7 @@ export function FormField(props: IFormField) {
   return (
     <div
       className={'form-field ' + (props.errorText ? 'form-field--error' : '')}>
-      <Field {...props} onInput={props.onInput}/>
+      <Field {...props} onInput={props.onInput} />
       <span className="form-field__info">{props.errorText}</span>
     </div>
   )

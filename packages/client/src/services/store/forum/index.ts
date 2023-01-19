@@ -1,2 +1,2 @@
-export * from './forumSlice';
-export * from './forumThunk';
+export * from './forumSlice'
+export * from './forumThunk'

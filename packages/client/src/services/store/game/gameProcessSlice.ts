@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { GameProcess, RoundWord } from '../../../types/game';
+import { GameProcess, RoundWord } from '../../../types/game'
 
 const initialState: GameProcess = {
   roundCount: 1,
@@ -8,7 +8,7 @@ const initialState: GameProcess = {
   roundScore: 0,
   roundWords: [],
   winner: '',
-  endGameScore: ''
+  endGameScore: '',
 }
 
 const gameProcessSlice = createSlice({
@@ -36,36 +36,38 @@ const gameProcessSlice = createSlice({
     },
 
     addRoundWord(state, action) {
-      state.roundWords.push(action.payload);
+      state.roundWords.push(action.payload)
     },
 
     clearTeamProcess(state) {
-      state.roundWords = [];
-      state.roundScore = 0;
+      state.roundWords = []
+      state.roundScore = 0
     },
 
     clearGameProcess(state) {
-      clearTeamProcess();
-      state.roundCount = 1;
-      state.activeTeamIndex = 0;
-      state.activeWordIndex = 0;
-      state.roundScore = 0;
-      state.roundWords = [];
+      clearTeamProcess()
+      state.roundCount = 1
+      state.activeTeamIndex = 0
+      state.activeWordIndex = 0
+      state.roundScore = 0
+      state.roundWords = []
     },
 
     changeRoundWordScore(state, action) {
-      const foundIndex = state.roundWords.findIndex((item: RoundWord) => item.word === action.payload.word);
-      const roundWords = state.roundWords.slice();
-      roundWords[foundIndex] = action.payload;
-      state.roundWords = roundWords;
+      const foundIndex = state.roundWords.findIndex(
+        (item: RoundWord) => item.word === action.payload.word
+      )
+      const roundWords = state.roundWords.slice()
+      roundWords[foundIndex] = action.payload
+      state.roundWords = roundWords
       state.roundScore = roundWords.reduce((a: number, b: RoundWord) => {
-        return a + b.wordScore;
-      }, 0);
+        return a + b.wordScore
+      }, 0)
     },
 
     setWinner(state, action) {
       state.winner = action.payload
-    }
+    },
   },
 })
 
@@ -79,6 +81,6 @@ export const {
   clearTeamProcess,
   changeEndGameScore,
   setWinner,
-  clearGameProcess
+  clearGameProcess,
 } = gameProcessSlice.actions
 export default gameProcessSlice.reducer

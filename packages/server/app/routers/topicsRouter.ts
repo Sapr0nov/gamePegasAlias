@@ -1,7 +1,11 @@
 import express from 'express'
-import { createTopic, getTopicById, getTopics } from '../controllers/topicsController'
+import {
+  createTopic,
+  getTopicById,
+  getTopics,
+} from '../controllers/topicsController'
 
-const topicsRouter = express.Router();
+const topicsRouter = express.Router()
 
 // Получение списка всех тем
 topicsRouter.get('/', getTopics)
@@ -12,4 +16,4 @@ topicsRouter.get('/:id', getTopicById)
 // Создание новой темы
 topicsRouter.post('/', createTopic)
 
-export default topicsRouter;
+export default topicsRouter

@@ -6,9 +6,9 @@ export enum userTheme {
   LIGHT = 'LIGHT',
 }
 export interface IUser {
- user_id?: number,
- author_id: number,
- theme?: userTheme
+  user_id?: number
+  author_id: number
+  theme?: userTheme
 }
 
 export const userModel: ModelAttributes<Model, IUser> = {

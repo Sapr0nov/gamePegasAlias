@@ -3,23 +3,23 @@ import { getForumApi } from './forumThunk'
 
 const initialState = {
   topics: [],
-  status: ''
+  status: '',
 }
 
 const forumSlice = createSlice({
   name: 'forum',
   initialState,
   reducers: {},
-  extraReducers: (builder) => {
+  extraReducers: builder => {
     builder
-      .addCase(getForumApi.pending, (state) => {
+      .addCase(getForumApi.pending, state => {
         state.status = 'loading'
       })
       .addCase(getForumApi.fulfilled, (state, action) => {
         state.status = 'resolved'
         state.topics = action.payload.rows
       })
-  }
+  },
 })
 
 export default forumSlice.reducer

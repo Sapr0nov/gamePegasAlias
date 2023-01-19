@@ -11,11 +11,13 @@ export const CanvasComponent: FC<CanvasProps> = ({
   height,
   word,
 }: CanvasProps) => {
-  if (typeof window == "undefined") {
+  if (typeof window == 'undefined') {
     const canvasRef = useRef(null)
-    return <canvas ref={canvasRef} id="round-game" height={height} width={width} />
+    return (
+      <canvas ref={canvasRef} id="round-game" height={height} width={width} />
+    )
   }
-  
+
   const canvasRef = useRef(null)
   const card = new Image()
   let counter = 1
@@ -31,7 +33,9 @@ export const CanvasComponent: FC<CanvasProps> = ({
     }
     const canvas: HTMLCanvasElement = canvasRef.current
 
-    const ctx: CanvasRenderingContext2D = canvas.getContext('2d') as CanvasRenderingContext2D;
+    const ctx: CanvasRenderingContext2D = canvas.getContext(
+      '2d'
+    ) as CanvasRenderingContext2D
     let frameCount = 0
 
     const render = () => {

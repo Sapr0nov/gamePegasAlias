@@ -8,7 +8,7 @@ export async function createComment(props: IComment) {
 
 // Удаление комментария по ID
 export async function deleteComment(id: number) {
-  return Comments.destroy({ 
-    where: { comment_id: id } 
+  return Comments.destroy({
+    where: { comment_id: id },
   })
 }

@@ -12,23 +12,23 @@ const initialState = {
     title: 'Заголовок',
     topic_id: 1,
   },
-  status: ''
+  status: '',
 }
 
 const topicSlice = createSlice({
   name: 'topic',
   initialState,
   reducers: {},
-  extraReducers: (builder) => {
+  extraReducers: builder => {
     builder
-      .addCase(getTopicApi.pending, (state) => {
+      .addCase(getTopicApi.pending, state => {
         state.status = 'loading'
       })
       .addCase(getTopicApi.fulfilled, (state, action) => {
         state.status = 'resolved'
         state.topic = action.payload
       })
-  }
+  },
 })
 
 export default topicSlice.reducer

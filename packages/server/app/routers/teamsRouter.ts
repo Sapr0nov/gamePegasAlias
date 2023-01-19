@@ -1,5 +1,11 @@
 import express from 'express'
-import { createNewTeam, deleteTeamById, getTeams, getLeaderBoard, updateTeams} from '../controllers/teamsController'
+import {
+  createNewTeam,
+  deleteTeamById,
+  getTeams,
+  getLeaderBoard,
+  updateTeams,
+} from '../controllers/teamsController'
 
 const teamsRouter = express.Router()
 
@@ -18,4 +24,4 @@ teamsRouter.post('/update', updateTeams)
 // Получение Списка ТОР 20
 teamsRouter.get('/leaderboard', getLeaderBoard)
 
-export default teamsRouter;
+export default teamsRouter

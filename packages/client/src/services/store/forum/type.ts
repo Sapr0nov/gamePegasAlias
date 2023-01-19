@@ -1,4 +1,4 @@
 export type ForumState = {
-  cursor: number,
+  cursor: number
   limit: number
 }

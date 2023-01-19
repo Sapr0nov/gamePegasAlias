@@ -17,8 +17,8 @@ export function Field(props: IField) {
       className={'field'}
       value={props.value}
       placeholder={props.placeholder}
-      onInput={(e) => {
-        const target = e.target as HTMLInputElement;
+      onInput={e => {
+        const target = e.target as HTMLInputElement
         props.onInput ? props.onInput(target.value) : ''
       }}
     />

@@ -4,7 +4,9 @@ import { startApp } from '../config/db.config'
 
 // Создать пользователя
 export async function createUser(props: IUser) {
-  if (props && props.author_id > 0) { startApp(props.author_id)}
+  if (props && props.author_id > 0) {
+    startApp(props.author_id)
+  }
   return User.create({ ...props })
 }
 
@@ -18,7 +20,7 @@ export async function getTheme(id: number) {
 }
 // Переключение темы по ID
 export async function toggleTheme(id: number) {
-  const user: IUser | null | any  = await User.findOne({
+  const user: IUser | null | any = await User.findOne({
     where: {
       author_id: id,
     },
@@ -26,8 +28,7 @@ export async function toggleTheme(id: number) {
   if (user) {
     if (user.theme === 'DARK') {
       user.theme = userTheme.LIGHT
-    }
-    else {
+    } else {
       user.theme = userTheme.DARK
     }
     user.save()

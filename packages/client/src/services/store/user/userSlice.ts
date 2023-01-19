@@ -4,7 +4,6 @@ import { authorization } from '../../../utils'
 import { UserState } from './type'
 import { authLogout, changeProfile, getUserApi } from './userThunk'
 
-
 const initialState: UserState = {
   user: {
     id: 0,
@@ -14,9 +13,9 @@ const initialState: UserState = {
     second_name: '',
     display_name: '',
     phone: '',
-    avatar: ''
+    avatar: '',
   },
-  status: ''
+  status: '',
 }
 
 const userSlice = createSlice({
@@ -24,26 +23,26 @@ const userSlice = createSlice({
   initialState,
   reducers: {
     getUser(state, action: PayloadAction<UserInfo>) {
-      state.user = action.payload;
+      state.user = action.payload
     },
   },
-  extraReducers: (builder) => {
+  extraReducers: builder => {
     builder
-      .addCase(getUserApi.pending, (state) => {
-        state.status = 'loading';
+      .addCase(getUserApi.pending, state => {
+        state.status = 'loading'
       })
       .addCase(getUserApi.fulfilled, (state, action) => {
-        state.status = 'resolved';
-        state.user = action.payload ? action.payload : initialState.user;
+        state.status = 'resolved'
+        state.user = action.payload ? action.payload : initialState.user
       })
       .addCase(changeProfile.fulfilled, (state, action) => {
-        state.user = action.payload;
+        state.user = action.payload
       })
-      .addCase(authLogout.fulfilled, (state) => {
-        state.user = initialState.user;
+      .addCase(authLogout.fulfilled, state => {
+        state.user = initialState.user
       })
-      .addCase(authLogout.rejected, (state) => {   
-        state.user = initialState.user;
+      .addCase(authLogout.rejected, state => {
+        state.user = initialState.user
       })
   },
 })

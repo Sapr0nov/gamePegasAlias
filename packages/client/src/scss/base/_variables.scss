@@ -27,9 +27,9 @@ $disabled: #6a7098;
 $icon-bg: #d6dbf9;
 
 // levels
-$easy: #00B49E;
-$medium: #B0B400;
-$hard: #B44B00;
+$easy: #00b49e;
+$medium: #b0b400;
+$hard: #b44b00;
 
 $delete-bg: #d6dbf9;
 $breadcrumbs-bg: #dce4f8;
@@ -60,38 +60,30 @@ $avatar-gradient: linear-gradient(59deg, #e1daf7 0%, #d2ddfd 100%);
 $main-font: 'gilroy', 'arial', sans-serif;
 
 // shadows
-$button-shadow: 
-  3px 3px 4px 0px rgba(0, 0, 0, 0.1),
+$button-shadow: 3px 3px 4px 0px rgba(0, 0, 0, 0.1),
   -4px -4px 4px 0px rgba(255, 255, 255, 0.4);
-$button-pressed-shadow: 
-  3px 3px 4px 0px rgba(0, 0, 0, 0.1) inset,
+$button-pressed-shadow: 3px 3px 4px 0px rgba(0, 0, 0, 0.1) inset,
   -3px -3px 2px 0px rgba(255, 255, 255, 0.4) inset;
-$button-pressed-shadow-light:
-  1px 1px 4px 0 rgb(0 0 0 / 10%) inset,
+$button-pressed-shadow-light: 1px 1px 4px 0 rgb(0 0 0 / 10%) inset,
   -3px -3px 2px 0px rgb(255 255 255 / 40%) inset;
-$field-shadow: 
-  -3px -3px 4px 0px rgba(255, 255, 255, 0.15) inset,
+$field-shadow: -3px -3px 4px 0px rgba(255, 255, 255, 0.15) inset,
   3px 3px 4px 0px rgba(0, 0, 0, 0.1) inset;
 $info-title-shadow: 0px 15px 25px 0px rgba(222, 112, 178, 0.7);
 $button-shadow-hover: inset -4px -4px 4px rgba(0, 0, 0, 0.1);
 $menu-item-shadow: 4px 4px 40px 0px rgba(178, 193, 240, 0.7);
 $menu-item-pressed-shadow: 10px 10px 20px 0px rgba(178, 193, 240, 0.4) inset;
-$checkbox-shadow: 
-  2px 2px 4px rgba(114, 142, 171, 0.1), -6px -6px 20px white,
+$checkbox-shadow: 2px 2px 4px rgba(114, 142, 171, 0.1), -6px -6px 20px white,
   4px 4px 20px rgba(111, 140, 176, 0.41);
 $breadcrumbs-shadow: inset -2px -2px 4px white, inset 2px 2px 4px #bac3df;
 $breadcrumbs-shadow-hover: inset 2px 2px 4px#bac3df, inset 2px 2px 4px white;
-$card-shadow: 
-  4px 4px 20px 0px rgba(111, 140, 176, 0.41),
+$card-shadow: 4px 4px 20px 0px rgba(111, 140, 176, 0.41),
   -6px -6px 20px 0px rgba(255, 255, 255, 1),
   2px 2px 4px 0px rgba(114, 142, 171, 0.1);
 $card-hover-shadow: 0 4px 35px 0 rgba(107, 116, 172, 0.8);
-$icon-shadow: 
-  2px 2px 4px rgba(114, 142, 171, 0.1), -6px -6px 20px #ffffff,
+$icon-shadow: 2px 2px 4px rgba(114, 142, 171, 0.1), -6px -6px 20px #ffffff,
   4px 4px 20px rgba(111, 140, 176, 0.41);
 $avatar-shadow: 10px 10px 20px #bfcae4, -10px -10px 20px #ebebff;
-$logo-round-shadow: 
-  -10px -10px 20px 0px rgba(235, 235, 255, 1),
+$logo-round-shadow: -10px -10px 20px 0px rgba(235, 235, 255, 1),
   10px 10px 20px 0px rgba(191, 202, 228, 1);
 
 // Screen width

@@ -1,6 +1,6 @@
-import { UserInfo } from "../../../types/user";
+import { UserInfo } from '../../../types/user'
 
 export type UserState = {
-    user: UserInfo;
-    status: string;
+  user: UserInfo
+  status: string
 }
