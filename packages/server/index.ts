@@ -11,7 +11,7 @@ import * as https from 'https'
 import iconv from 'iconv-lite'
 // @ts-ignore
 import { render } from '../client/dist/ssr/entry-server.cjs'
-import { dbConnect } from './app/config/db.config'
+import { Words, dbConnect } from './app/config/db.config'
 import topicsRouter from './app/routers/topicsRouter'
 import commentsRouter from './app/routers/commentsRouter'
 import likesRouter from './app/routers/likesRouter'
@@ -71,6 +71,30 @@ export async function createServer(hmrPort = void 0) {
     const word = req.params.word
     let isWiktionaryOrgEmpty = false
 
+    // делаем запрос в свою базу данных    
+    const desc =  Words.findOne({
+      where: {
+        word: word,
+      },
+    })
+    console.log(desc);
+
+    const json =
+    '{"word":"' +
+    word +
+    '","explanation": "' +
+    desc +
+    '"}'
+
+    res
+    .status(200)
+    .set({ 'Content-Type': 'text/html; charset=utf-8' })
+    .send(json)
+
+    if (desc != void 0) {
+      isWiktionaryOrgEmpty = true;
+    }
+
     // делаем запрос к сайту ru.wiktionary.org
     https.get('https://ru.wiktionary.org/wiki/' + word, response => {
       const data: Buffer[] = []
@@ -95,16 +119,19 @@ export async function createServer(hmrPort = void 0) {
         }
 
         // формируем и возвращаем строку json
+        const description = escapeHtml(results[0]);
         const json =
           '{"word":"' +
           word +
           '","explanation": "' +
-          escapeHtml(results[0]) +
+          description +
           '"}'
         res
           .status(200)
           .set({ 'Content-Type': 'text/html; charset=utf-8' })
           .send(json)
+          // и записываем себе в базу
+          Words.create({ word, description})
       })
     })
 
@@ -147,16 +174,19 @@ export async function createServer(hmrPort = void 0) {
             results[0] = results[0].replace(regexDelimer, '</p><p>')
 
             // формируем и возвращаем строку json
+            const description = escapeHtml(results[0]);
             const json =
               '{"word":"' +
               word +
               '","explanation": "' +
-              escapeHtml(results[0]) +
+              description +
               '"}'
             res
               .status(200)
               .set({ 'Content-Type': 'text/html; charset=utf-8' })
               .send(json)
+            // и записываем себе в базу
+           Words.create({ word, description})
           })
         }
       )
